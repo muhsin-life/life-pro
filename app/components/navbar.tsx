@@ -812,7 +812,7 @@ const Navbar = ({ data, brands_data, sessionServ, isArabic, lang, langData, lang
                 <div className="text-[11px] text-center text-white" >{langData.navbar.cart}</div>
 
                 {cartItems && cartItems.length > 0 ?
-                  <div className="group-hover/cart:scale-100 scale-0 absolute w-[25rem] top-[4rem] right-0 bg-white rounded-lg px-5 py-2  h-fit max-h-[20rem] overflow-y-auto shadow-lg">
+                  <div className="group-hover/cart:scale-100  scale-0 absolute w-[25rem] top-[4rem] right-0 bg-white rounded-lg px-5 py-2  h-fit max-h-[20rem] overflow-y-auto shadow-lg">
                     {cartItems.map((item) => (
                       <>
                         <div className="flex py-2">
