@@ -816,11 +816,11 @@ const Navbar = ({ data, brands_data, sessionServ, isArabic, lang, langData, lang
                     {cartItems.map((item) => (
                       <>
                         <div className="flex py-2">
-                          <div className="w-3/4 text-sm  my-auto">{item.title}</div>
+                          <a href={`${pathName?.substring(0, 6)}/products/${item.slug}`} className="w-3/4 text-sm  my-auto">{item.title}</a>
                           <div className="w-1/4 flex">
-                            <div className="w-3/4">
+                            <a href={`${pathName?.substring(0, 6)}/products/${item.slug}`} className="w-3/4">
                               <Image src={item.images.featured_image} height={100} width={100} className="w-full m-1" alt={item.title} />
-                            </div>
+                            </a>
                             <button onClick={() => {
                               dispatch(removeFromCart(item.id))
                               removedFromCart()
@@ -845,7 +845,7 @@ const Navbar = ({ data, brands_data, sessionServ, isArabic, lang, langData, lang
                       </div>
                     </div>
                     <div className="py-3 flex justify-between text-white space-x-3">
-                      <a href={`${pathName?.substring(0, 6)}/cart`} className="bg-[#39f] px-3 py-1 w-full text-center" >CART</a>
+                      <a href={`${pathName?.substring(0, 6)}/home/cart`} className="bg-[#39f] px-3 py-1 w-full text-center" >CART</a>
                       <button className="bg-[#39f] px-3 py-1 w-full">CHECK OUT</button>
                     </div>
                   </div>
