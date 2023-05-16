@@ -797,7 +797,7 @@ const Navbar = ({ data, brands_data, sessionServ, isArabic, lang, langData, lang
                 <div className="text-[11px] text-center text-white">{langData.navbar.account}</div>
               </a>}
 
-              <a href={`${pathName?.substring(0, 6)}/cart`} className="flex flex-col md:hidden lg:flex hidden relative cart group/cart">
+              <a href={`${pathName?.substring(0, 6)}/home/cart`} className="flex flex-col md:hidden lg:flex hidden relative cart group/cart">
                 {cartItems && cartItems.length != 0 ?
                   < div className="bg-red-500 rounded-full absolute top-0 -right-2 text-xs py-[3px] px-[8px] text-white font-semibold">
                     <span className="my-auto"> {cartItems.length}</span>
