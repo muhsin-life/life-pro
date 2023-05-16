@@ -3,8 +3,7 @@ import { notFound } from "next/navigation";
 import { ProductsPage } from "../../../components/products-page";
 import Products from "../../../components/products";
 import Cart from "../../../components/cart";
-import ProductsSlider from "../../../components/products-slider";
-import getProductsData from "../../lib/getProductsData";
+
 async function getSinglePageData(slug: string, lang: string) {
 
     const res = await fetch(`https://prodapp.lifepharmacy.com/api/cms/page/${slug}?lang=${lang}`)
@@ -54,42 +53,6 @@ const SinglePageContent = async ({ params }) => {
 
 }
 
-export async function generateStaticParams() {
 
-    var filt_paths = [
-        'pre-ramadan-sale',
-        'offers',
-        'healthy-ramadan',
-        'health_checkup',
-        'intimate-care',
-        '30-mins-delivery',
-        'clearance-sale',
-        'beauty-care',
-        'sports-nutrition',
-        'nutrition-and-vitamins',
-        'home-healthcare',
-        'mother-baby-care',
-        'personal-care',
-        'wellbeing',
-        'facial-skin-care',
-        'sun-care',
-        'proteins',
-        'vitamins',
-        'sunshine',
-        'hair-skin-nails',
-        'mens-care',
-        'fish-oil-omegas',
-        'antiseptics-disinfectant',
-        'multivitamins-60c1c134',
-        'travel_essentials',
-        'search',
-        'products'
-    ]
-
-    return filt_paths.map((slug) => ({
-        slug
-
-    }));
-}
 
 export default SinglePageContent;
