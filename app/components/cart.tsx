@@ -27,7 +27,6 @@ const Cart = ({ children }) => {
     }
 
     const calculateVATAmount = () => {
-        debugger;
         return (Number(calculateTotalCartPrice()) * 0.05).toFixed(2);
     }
     // const calculateShippingCharge = () => {
@@ -55,10 +54,9 @@ const Cart = ({ children }) => {
                                             <div className="flex p-3 space-x-4">
                                                 <div className="max-h-[10rem]">
                                                     <Image src={item.images.featured_image} height={150} width={150} className=" border border-slate-200 rounded-lg " alt="pro_Image" />
-
                                                 </div>
                                                 <div className="rounded-lg flex-col flex-grow justify-between flex ">
-                                                    <p className=" text-lg">{item.title}</p>
+                                                    <p className=" xl:text-lg lg:text-base sm:text-sm text-xs">{item.title}</p>
                                                     {item.offers ?
                                                         <div className="bg-amber-200 w-fit text-xs px-1 border-orange-400 border ">{item.offers.value ? <>{parseFloat(item.offers.value).toFixed(0)}% OFF</> : <>{item.offers.is_special}</>}</div> : null}
                                                     <div className="text-blue-500"><span className="text-xs">AED</span> {item.prices[0].price.regular_price}</div>
@@ -78,7 +76,7 @@ const Cart = ({ children }) => {
                                                         dispatch(incrementQuantity(item.id))
                                                         toast.info(`Cart successfully updated`);
                                                     }} className="bg-[#39f] m-[0.5px] w-[2rem] ">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="{1.5}" stroke="white" className="h-4 w-7 mx-auto">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="{1.5}" stroke="white" className="h-4 w-5 mx-auto">
                                                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                                                     </svg>
                                                 </button>
@@ -134,7 +132,16 @@ const Cart = ({ children }) => {
                             <button className='bg-[#39f] w-full rounded-md text-white text-xs py-2 hover:bg-blue-600'>PROCEED TO CHECKOUT</button>
                         </div>
                     </>
-                    : null}
+                    :
+                    <div className='mx-auto space-y-4 py-5'>
+                        <svg className='h-36 w-36 fill-gray-600 mx-auto' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                            <path d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z" />
+                            </svg>
+                            <p className='text-gray-400 text-center'>No products added to the cart</p>
+                            <button className='bg-[#39f] w-full rounded-md text-white text-xs py-2 hover:bg-blue-600'>RETURN TO SHOP</button>
+
+                    </div>
+                }
             </div>
             <div className='max-w-[1450px] px-[10px] mx-auto'>
                 {children}
